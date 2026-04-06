@@ -61,20 +61,6 @@ Switch roles instantly via the **Viewer / Admin toggle** in the top header.
 npm install
 ```
 
-### 2. Install shadcn/ui (optional — not strictly required but recommended for future extensions)
-```bash
-npx shadcn@latest init
-```
-When prompted, choose:
-- Style: **Default**
-- Base color: **Violet**
-- CSS variables: **Yes**
-
-Then add components as needed:
-```bash
-npx shadcn@latest add button input select dialog label separator tabs badge scroll-area tooltip avatar switch
-```
-
 ### 3. Run the development server
 ```bash
 npm run dev
