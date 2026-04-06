@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap');
+
+@import "tw-animate-css";
+
+@import "shadcn/tailwind.css";
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 10%;
+    --primary: 252 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 16% 96%;
+    --secondary-foreground: 220 14% 18%;
+    --muted: 215 14% 94%;
+    --muted-foreground: 215 14% 42%;
+    --accent: 262 54% 92%;
+    --accent-foreground: 220 15% 10%;
+    --destructive: 359 65% 54%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 12% 89%;
+    --input: 220 12% 97%;
+    --ring: 220 14% 70%;
+    --radius: 0.625rem;
+
+    --income-color: #10b981;
+    --expense-color: #f43f5e;
+    --neutral-color: #8b5cf6;
+    --chart-1: 210 20% 96%;
+    --chart-2: 210 18% 80%;
+    --chart-3: 210 16% 66%;
+    --chart-4: 210 14% 54%;
+    --chart-5: 210 12% 42%;
+    --sidebar: 0 0% 97%;
+    --sidebar-foreground: 220 15% 10%;
+    --sidebar-primary: 252 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 16% 96%;
+    --sidebar-accent-foreground: 220 15% 10%;
+    --sidebar-border: 220 12% 89%;
+    --sidebar-ring: 220 14% 70%;
+  }
+
+  .dark {
+    --background: 230 14% 12%;
+    --foreground: 215 20% 96%;
+    --card: 230 14% 16%;
+    --card-foreground: 215 20% 96%;
+    --popover: 230 14% 16%;
+    --popover-foreground: 215 20% 96%;
+    --primary: 252 100% 80%;
+    --primary-foreground: 220 15% 12%;
+    --secondary: 250 50% 27%;
+    --secondary-foreground: 215 20% 96%;
+    --muted: 220 10% 18%;
+    --muted-foreground: 215 14% 72%;
+    --accent: 260 60% 25%;
+    --accent-foreground: 215 20% 96%;
+    --destructive: 359 89% 64%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 10% 35%;
+    --input: 210 10% 14%;
+    --ring: 210 14% 62%;
+    --chart-1: 210 16% 24%;
+    --chart-2: 210 14% 36%;
+    --chart-3: 210 12% 48%;
+    --chart-4: 210 10% 58%;
+    --chart-5: 210 8% 68%;
+    --sidebar: 230 12% 16%;
+    --sidebar-foreground: 215 20% 96%;
+    --sidebar-primary: 252 100% 80%;
+    --sidebar-primary-foreground: 215 20% 96%;
+    --sidebar-accent: 250 50% 27%;
+    --sidebar-accent-foreground: 215 20% 96%;
+    --sidebar-border: 210 10% 22%;
+    --sidebar-ring: 210 14% 62%;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'Syne', sans-serif;
+  }
+  .theme {
+    --font-heading: var(--font-sans);
+    --font-sans: var(--font-sans);
+  }
+  html {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 shadow-sm;
+  }
+
+  .stat-card {
+    @apply relative overflow-hidden rounded-2xl p-6 transition-all duration-300;
+  }
+
+  .stat-card:hover {
+    @apply shadow-lg -translate-y-0.5;
+  }
+
+  .trend-badge {
+    @apply inline-flex items-center gap-1 text-xs font-semibold px-2 py-0.5 rounded-full;
+  }
+
+  .trend-up {
+    @apply bg-emerald-500/10 text-emerald-500;
+  }
+
+  .trend-down {
+    @apply bg-rose-500/10 text-rose-500;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-medium transition-all duration-200;
+  }
+
+  .nav-link:hover {
+    @apply bg-accent text-accent-foreground;
+  }
+
+  .nav-link.active {
+    @apply bg-primary text-primary-foreground shadow-md shadow-primary/25;
+  }
+}
+
+@layer utilities {
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+  .animate-delay-400 { animation-delay: 400ms; }
+  .animate-delay-500 { animation-delay: 500ms; }
+
+  .gradient-mesh {
+    background-image: radial-gradient(at 20% 20%, hsl(262 83% 65% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(210 100% 56% / 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 80%, hsl(160 84% 39% / 0.05) 0px, transparent 50%);
+  }
+
+  .dark .gradient-mesh {
+    background-image: radial-gradient(at 20% 20%, hsl(262 83% 65% / 0.12) 0px, transparent 50%),
+      radial-gradient(at 80% 0%, hsl(210 100% 56% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 80%, hsl(160 84% 39% / 0.08) 0px, transparent 50%);
+  }
+
+  .income-gradient {
+    background: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  .expense-gradient {
+    background: linear-gradient(135deg, #f43f5e, #e11d48);
+  }
+
+  .balance-gradient {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  }
+
+  .savings-gradient {
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--border)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--border));
+    border-radius: 9999px;
+  }
+}
+
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  background: hsl(var(--card)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.2) !important;
+}
+
+.recharts-cartesian-axis-tick-value {
+  fill: hsl(var(--muted-foreground));
+  font-size: 11px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.recharts-legend-item-text {
+  color: hsl(var(--foreground)) !important;
+  font-size: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
